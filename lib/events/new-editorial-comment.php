@@ -14,7 +14,7 @@ use WP_REST_Response;
 use WP_Query;
 
 Event::register( 'new_editorial_comment' )
-	->add_ui( __( 'A new editorial comment was added', 'hm-workflows' ) )
+	->add_ui( __( 'A new editorial comment is added', 'hm-workflows' ) )
 	->set_listener( [
 		'action'        => 'wp_insert_comment',
 		'callback'      => function ( $id, WP_Comment $comment ) {
@@ -82,7 +82,7 @@ Event::register( 'new_editorial_comment' )
 				return get_user_by( 'id', $user_id );
 			}, (array) get_comment_meta( $comment->comment_ID, 'assignees' ) );
 		},
-		__( 'Assignees', 'hm-workflows' )
+		__( 'Comment assignees', 'hm-workflows' )
 	);
 
 
